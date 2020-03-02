@@ -10,7 +10,8 @@ npm i ../crm-ui-ux-library/dist/crm-ui-ux --save</br>
 ng serve</br>
 
 ## Design details
-| Key | Symbol |
+| Design key | Change details |
+| --- | --- |
 | Model files | Under app/models |
 | Mock | BillingServiceMock provided in AppModule. Real service also implemented |
 | Backend service | BillingService Tested against real backend. Please run biilg-service app and remove the BillingServiceMock from AppModule |
@@ -22,7 +23,7 @@ ng serve</br>
 | Performance | Small(1000ms) delay introduced in mock service. This is not real performace impact. |
 
 ## Test coverage
-###Coverage summary
+### Coverage summary
 * Statements   : 90.91% ( 260/286 )
 * Branches     : 75% ( 15/20 )
 * Functions    : 84.68% ( 105/124 )

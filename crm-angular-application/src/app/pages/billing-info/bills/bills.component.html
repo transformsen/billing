@@ -1,0 +1,25 @@
+<crm-section crmGroupItem>
+    <crm-section-header>
+        Bills
+    </crm-section-header>
+
+    <crm-section-content>
+        <crm-auto-table [(page)]="billsPage" [columns]="billsColumns" [rows]="bills"
+            class="bills-table" pageable selectable>
+
+            <div crmTooltipContent>
+                Custom tooltip content Custom tooltip
+                <span>
+                    <crm-icon icon="document-add"></crm-icon> with Icon
+                </span>
+                contentCustom tooltip contentCustom tooltip content
+            </div>
+
+            <ng-template crmCustomCell property="invoiceNumber" let-item="item">
+                <crm-button type="inline" align="start">
+                    {{item.invoiceNumber}}
+                </crm-button>
+            </ng-template>
+        </crm-auto-table>
+    </crm-section-content>
+</crm-section>

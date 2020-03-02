@@ -1,0 +1,9 @@
+@import "../../../common";
+
+:host {
+  @include flex(center);
+  @include padding(0 16px);
+  @include semiBoldSL;
+  color: $dark-black;
+  min-height: 56px;
+}

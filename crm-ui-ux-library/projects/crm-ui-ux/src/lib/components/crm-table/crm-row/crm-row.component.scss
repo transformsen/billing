@@ -1,0 +1,46 @@
+@import "../../../common";
+
+:host {
+  display: table-row;
+
+  &:not(.header) {
+    ::ng-deep {
+      crm-cell {
+        @include border(bottom, 1px solid $table-border);
+
+        .inner {
+          @include padding(13px 16px);
+        }
+      }
+    }
+  }
+
+  &.header {
+    ::ng-deep {
+      crm-cell {
+        @include border(top, 2px solid $table-border);
+        @include border(bottom, 2px solid $table-border);
+        line-height: 16px;
+        height: 56px;
+
+        .inner {
+          @include semiBoldS;
+        }
+      }
+
+      crm-cell + crm-cell {
+        .inner {
+          &::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: calc(100% - 22px);
+            top: 11px;
+            left: 0;
+            background-color: $table-border;
+          }
+        }
+      }
+    }
+  }
+}

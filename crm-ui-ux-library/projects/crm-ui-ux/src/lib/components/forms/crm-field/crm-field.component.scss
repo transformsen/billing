@@ -1,0 +1,42 @@
+@import "../../../common";
+
+:host {
+  @include flex(null, null, column);
+
+  .label {
+    @include regularS;
+    @include flex(center);
+    color: $dark-black;
+
+    .asterisk {
+      color: $error;
+      margin-left: 5px;
+    }
+  }
+
+  .content, .helper, .error {
+    margin-top: 7px;
+  }
+
+  .content {
+    @include semiBoldS;
+  }
+
+  .helper, .error {
+    @include regularS;
+  }
+
+  .helper {
+    color: $placeholder;
+  }
+
+  .error {
+    color: $error;
+  }
+
+  &.has-error {
+    .label {
+      color: $error;
+    }
+  }
+}

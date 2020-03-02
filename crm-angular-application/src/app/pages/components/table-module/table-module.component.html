@@ -1,0 +1,185 @@
+<app-description title="CrmTableComponent" subTitle="Create table manually">
+  <app-viewbox>
+    <crm-table>
+      <crm-row header>
+        <crm-cell>
+          Header cell 1
+        </crm-cell>
+        <crm-cell>
+          Header cell 2
+        </crm-cell>
+        <crm-cell>
+          Header cell 3
+        </crm-cell>
+      </crm-row>
+
+      <crm-row>
+        <crm-cell>
+          Body cell 1
+        </crm-cell>
+        <crm-cell>
+          Body cell 2
+        </crm-cell>
+        <crm-cell>
+          Body cell 3
+        </crm-cell>
+      </crm-row>
+
+      <crm-row>
+        <crm-cell>
+          Body cell 4
+        </crm-cell>
+        <crm-cell>
+          Body cell 5
+        </crm-cell>
+        <crm-cell>
+          Body cell 6
+        </crm-cell>
+      </crm-row>
+    </crm-table>
+  </app-viewbox>
+
+  <app-codebox path="/table/01"></app-codebox>
+</app-description>
+
+<app-description title="CrmTableComponent" subTitle="Use cell alignment">
+  <app-viewbox>
+    <crm-table>
+      <crm-row header>
+        <crm-cell align="center">
+          Header cell 1
+        </crm-cell>
+        <crm-cell align="start">
+          Header cell 2
+        </crm-cell>
+        <crm-cell align="space">
+          <span>Header</span>
+          <span>cell</span>
+        </crm-cell>
+        <crm-cell align="end">
+          Header cell 4
+        </crm-cell>
+      </crm-row>
+
+      <crm-row>
+        <crm-cell>
+          Body cell 1
+        </crm-cell>
+        <crm-cell>
+          Body cell 2
+        </crm-cell>
+        <crm-cell>
+          Body cell 3
+        </crm-cell>
+        <crm-cell>
+          Body cell 4
+        </crm-cell>
+      </crm-row>
+
+      <crm-row>
+        <crm-cell align="start">
+          Body cell 5
+        </crm-cell>
+        <crm-cell>
+          Body cell 6
+        </crm-cell>
+        <crm-cell align="end">
+          Body cell 7
+        </crm-cell>
+        <crm-cell>
+          Body cell 8
+        </crm-cell>
+      </crm-row>
+    </crm-table>
+  </app-viewbox>
+
+  <app-codebox path="/table/02"></app-codebox>
+</app-description>
+
+<app-description title="CrmTableComponent" subTitle="Use sortable, filterable header">
+  <app-viewbox>
+    <crm-table>
+      <crm-row header>
+        <crm-cell sortable align="space">
+          Click me
+        </crm-cell>
+        <crm-cell filterable align="space">
+          Header cell 2
+        </crm-cell>
+        <crm-cell>
+          Header cell 3
+        </crm-cell>
+      </crm-row>
+
+      <crm-row>
+        <crm-cell>
+          Body cell 1
+        </crm-cell>
+        <crm-cell>
+          Body cell 2
+        </crm-cell>
+        <crm-cell>
+          Body cell 3
+        </crm-cell>
+      </crm-row>
+
+      <crm-row>
+        <crm-cell>
+          Body cell 4
+        </crm-cell>
+        <crm-cell>
+          Body cell 5
+        </crm-cell>
+        <crm-cell>
+          Body cell 6
+        </crm-cell>
+      </crm-row>
+    </crm-table>
+  </app-viewbox>
+
+  <app-codebox path="/table/03"></app-codebox>
+</app-description>
+
+<app-description title="CrmAutoTableComponent" subTitle="Use automatic table">
+  <app-viewbox>
+    <crm-auto-table [columns]="columns" [rows]="rows"></crm-auto-table>
+  </app-viewbox>
+
+  <app-codebox path="/table/04"></app-codebox>
+</app-description>
+
+<app-description title="CrmAutoTableComponent" subTitle="Use automatic table with sort feature">
+  <app-viewbox>
+    <crm-auto-table [columns]="columnsWithUseSort" [rows]="rows"></crm-auto-table>
+  </app-viewbox>
+
+  <app-codebox path="/table/05"></app-codebox>
+</app-description>
+
+<app-description title="CrmAutoTableComponent" subTitle="Use automatic table with deep properties">
+  <app-viewbox>
+    <crm-auto-table [columns]="columnsWithDeepProperty" [rows]="deepRows"></crm-auto-table>
+  </app-viewbox>
+
+  <app-codebox path="/table/06"></app-codebox>
+</app-description>
+
+<app-description title="CrmAutoTableComponent" subTitle="Use automatic table with custom cell">
+  <app-viewbox>
+    <crm-auto-table [columns]="columnsWithCustomCell" [rows]="rows">
+      <ng-template crmCustomCell property="property1" let-item="item">
+        Property 1: {{item.property1}}
+      </ng-template>
+    </crm-auto-table>
+  </app-viewbox>
+
+  <app-codebox path="/table/07"></app-codebox>
+</app-description>
+
+<app-description title="CrmAutoTableComponent" subTitle="Use automatic table with pagination">
+  <app-viewbox>
+    <crm-auto-table [(page)]="page" [columns]="columns" [rows]="manyRows" pageable></crm-auto-table>
+  </app-viewbox>
+
+  <app-codebox path="/table/08"></app-codebox>
+</app-description>

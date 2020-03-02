@@ -1,0 +1,54 @@
+@import "../../common";
+
+@mixin display($display) {
+  &[crm-section-display='#{$display}'] {
+    @content;
+  }
+}
+
+:host {
+  position: relative;
+
+  .bar, .content {
+    flex-shrink: 0;
+  }
+
+  .bar {
+    position: relative;
+    background-color: $theme;
+  }
+
+  .content {
+    @include border(null, 1px solid $table-border);
+    width: 100%;
+  }
+
+  @include display('vertical') {
+    @include flex(null, null, column);
+
+    .bar {
+      width: 100%;
+      height: 4px;
+    }
+
+    .content {
+      border-top: 0;
+    }
+  }
+
+  @include display('horizontal') {
+    @include flex(stretch);
+
+    .bar {
+      position: absolute;
+      width: 4px;
+      height: 100%;
+    }
+
+    .content {
+      border-left: 0;
+      max-width: calc(100% - 4px);
+      margin-left: 4px;
+    }
+  }
+}

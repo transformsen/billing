@@ -1,0 +1,18 @@
+@import "../../common";
+
+:host {
+  @include flex(null, null, column);
+  background-color: $theme;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba($black, .5);
+
+  .page-header {
+    @include flex(null, center, column);
+    @include padding(0 47px);
+    height: 64px;
+
+    @include break(960px) {
+      @include padding(0 15px);
+    }
+  }
+}

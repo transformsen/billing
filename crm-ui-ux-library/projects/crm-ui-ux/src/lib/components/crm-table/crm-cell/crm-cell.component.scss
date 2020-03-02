@@ -1,0 +1,68 @@
+@import "../../../common";
+
+@mixin align($align) {
+  &[crm-cell-align='#{$align}'] {
+    @content;
+  }
+}
+
+:host {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  color: $dark-black;
+
+  .inner {
+    @include padding(0 16px);
+    @include regularS;
+    color: $dark-black;
+    height: 100%;
+
+    &.sorted {
+      padding-right: 0;
+    }
+  }
+
+  &.use-icon {
+    .inner {
+      padding-left: 0;
+    }
+  }
+
+  &.use-sort {
+    cursor: pointer;
+  }
+
+  &.use-icon, &.use-filter {
+    .inner {
+      padding-right: 0;
+    }
+  }
+
+  @include align('start') {
+    .inner {
+      @include flex(center, flex-start);
+      text-align: left;
+    }
+  }
+
+  @include align('end') {
+    .inner {
+      @include flex(center, flex-end);
+      text-align: right;
+    }
+  }
+
+  @include align('center') {
+    .inner {
+      @include flex(center, center);
+      text-align: center;
+    }
+  }
+
+  @include align('space') {
+    .inner {
+      @include flex(center, space-between);
+    }
+  }
+}

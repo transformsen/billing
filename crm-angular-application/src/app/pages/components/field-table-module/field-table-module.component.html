@@ -1,0 +1,55 @@
+<app-description title="CrmFieldTableComponent" subTitle="Default field table">
+  <app-viewbox>
+    <crm-field-table>
+      <ng-template crmFieldTableContent>
+        <crm-field label="Label">
+          <crm-button type="inline">
+            Button
+          </crm-button>
+        </crm-field>
+      </ng-template>
+
+      <ng-template crmFieldTableContent>
+        <crm-field label="Label">
+          Value
+        </crm-field>
+      </ng-template>
+
+      <ng-template crmFieldTableContent>
+        <crm-field label="Label">
+          <crm-dropdown [(value)]="value" [options]="options" placeholder="Dropdown"></crm-dropdown>
+        </crm-field>
+      </ng-template>
+    </crm-field-table>
+  </app-viewbox>
+
+  <app-codebox path="/field-table/01"></app-codebox>
+</app-description>
+
+<app-description title="CrmFieldTableComponent" subTitle="Selectable field table">
+  <app-viewbox>
+    <crm-field-table>
+      <ng-template crmFieldTableContent selectable [(selected)]="selected">
+        <crm-field label="Label">
+          <crm-button type="inline">
+            Button
+          </crm-button>
+        </crm-field>
+      </ng-template>
+
+      <ng-template crmFieldTableContent>
+        <crm-field label="Label">
+          Value
+        </crm-field>
+      </ng-template>
+
+      <ng-template crmFieldTableContent>
+        <crm-field label="Label">
+          <crm-dropdown [(value)]="value" [options]="options" placeholder="Dropdown"></crm-dropdown>
+        </crm-field>
+      </ng-template>
+    </crm-field-table>
+  </app-viewbox>
+
+  <app-codebox path="/field-table/02"></app-codebox>
+</app-description>

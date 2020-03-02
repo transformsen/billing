@@ -1,0 +1,15 @@
+<div class="top" *ngIf="position === 'top'">
+  <ng-container *ngTemplateOutlet="tooltipTemplate"></ng-container>
+</div>
+<ng-content></ng-content>
+<div class="bottom" *ngIf="position === 'bottom'">
+  <ng-container *ngTemplateOutlet="tooltipTemplate"></ng-container>
+</div>
+
+<ng-template #tooltipTemplate>
+  <div class="tooltip" *ngIf="hovered || clicked" #tooltip
+    [class.small]="size === 'small'"
+    [class.dark]="theme === 'dark'">
+    <ng-content select="[crmTooltipContent]"></ng-content>
+  </div>
+</ng-template>

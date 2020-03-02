@@ -1,0 +1,34 @@
+<crm-page-content *ngIf="(billingInfo$ | async) as billingInfo; else loading">
+    <crm-group direction="vertical" gap="20">
+        <div class="sections" crmGroupItem>
+            <app-current-billing-info class="section" [currentBillinginfo]="billingInfo.currentBillinginfo"
+                [selectStates]="selectStates" [selectable]="selectable">
+            </app-current-billing-info>
+            <app-current-billing-status class="section" [currentBillingStatus]="billingInfo.currentBillingStatus"
+                [selectStates]="selectStates" [selectable]="selectable">
+            </app-current-billing-status>
+            <app-permium-paid class="section" [premimumPaid]="billingInfo.premimumPaid" [selectable]="selectable"></app-permium-paid>
+        </div>
+        <app-billing-notes class="table" [billingNotes]="billingInfo.billingNotes">
+        </app-billing-notes>
+        <app-bills class="table" [bills]="billingInfo.bills"></app-bills>
+        <app-payments class="table" [payments]="billingInfo.payments"></app-payments>
+        <div class="sections-2">
+            <app-advanced-premimum-tax-credit class="section-2 table" 
+                [advancedPremimumTaxCredit]="billingInfo.advancedPremimumTaxCredit"></app-advanced-premimum-tax-credit>
+            <app-delinquency-correspondence class="section-2 table" 
+                [delinquencyCorrespondence]="billingInfo.delinquencyCorrespondence"></app-delinquency-correspondence>
+            <app-discretionary-billing-items class="section-2 table"
+                [discretionaryBillingItems]="billingInfo.discretionaryBillingItems"></app-discretionary-billing-items>
+        </div>
+    </crm-group>
+</crm-page-content>
+
+<div class="controller" (click)="selectable = !selectable">
+    Toggle selectable
+</div>
+<ng-template #loading>
+    <div class="loading-data">
+        loading...
+    </div>
+</ng-template>

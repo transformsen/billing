@@ -1,0 +1,77 @@
+<div class="container">
+  <table>
+    <!-- colgroup -->
+    <colgroup>
+      <col [attr.crm-accordion-column]="'toggle-column'">
+      <col [attr.crm-accordion-column]="'select-column'">
+
+      <col *ngFor="let directive of crmAccordionHeaderItemDirectives" [attr.crm-accordion-column]="directive.identifier">
+    </colgroup>
+
+    <!-- head -->
+    <thead>
+      <tr>
+        <th class="header-cell toggle-cell">
+          <div class="inner">
+            <div class="toggle" (click)="opened = !opened">
+              <crm-icon clickable icon="chevron-down"></crm-icon>
+            </div>
+          </div>
+        </th>
+
+        <th class="header-cell select-cell">
+          <div class="inner">
+            <crm-icon (click)="selectTable()" [icon]="selected ? 'document-check' : 'document-add'" clickable></crm-icon>
+          </div>
+        </th>
+
+        <th
+          *ngFor="let directive of crmAccordionHeaderItemDirectives"
+          [class.selected]="selected"
+          [attr.crm-accordion-column-halign]="directive.horizontalAlign ? directive.horizontalAlign : 'start'"
+          [attr.crm-accordion-column-valign]="directive.verticalAlign ? directive.verticalAlign : 'middle'"
+          class="header-cell accordion-cell">
+          <div class="inner">
+            <ng-container *ngTemplateOutlet="directive.templateRef"></ng-container>
+          </div>
+        </th>
+      </tr>
+    </thead>
+
+    <!-- body -->
+    <tbody *ngIf="opened">
+      <tr *ngFor="let row of rows">
+        <td></td>
+        <td></td>
+        <td *ngFor="let d of crmAccordionHeaderItemDirectives"></td>
+      </tr>
+      <ng-container *ngIf="opened">
+        <tr *ngFor="let row of rows">
+          <td></td>
+          <td class="data-cell select-cell">
+            <div class="inner">
+              <crm-icon (click)="selectRow(row)" [icon]="isSelectedRow(row) ? 'document-check' : 'document-add'" clickable></crm-icon>
+            </div>
+          </td>
+
+          <ng-container *ngFor="let headerDirective of crmAccordionHeaderItemDirectives">
+            <ng-container *ngTemplateOutlet="dataCellTemplate; context: {directive: getBodyDirective(headerDirective.identifier)}"></ng-container>
+          </ng-container>
+
+          <ng-template #dataCellTemplate let-directive="directive">
+            <td
+              *ngIf="directive"
+              [class.selected]="isSelectedRow(row)"
+              [attr.crm-accordion-column-halign]="directive.horizontalAlign ? directive.horizontalAlign : 'start'"
+              [attr.crm-accordion-column-valign]="directive.verticalAlign ? directive.verticalAlign : 'middle'"
+              class="body-cell accordion-cell">
+              <div class="inner">
+                <ng-container *ngTemplateOutlet="directive.templateRef; context: {item: row}"></ng-container>
+              </div>
+            </td>
+          </ng-template>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

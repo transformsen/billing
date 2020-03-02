@@ -1,0 +1,12 @@
+<div class="inner" (click)="changeSortDirection()" [ngClass]="{sorted: sortDirection !== ''}">
+  <ng-content select="crm-icon"></ng-content>
+  <ng-content></ng-content>
+
+  <ng-container *ngIf="useSort && sortDirection !== ''">
+    <crm-icon [icon]="getSortIcon()"></crm-icon>
+  </ng-container>
+
+  <ng-container *ngIf="useFilter">
+    <crm-icon clickable icon="filter"></crm-icon>
+  </ng-container>
+</div>

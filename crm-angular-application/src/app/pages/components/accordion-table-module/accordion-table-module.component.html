@@ -1,0 +1,201 @@
+<app-description
+  title="CrmAccordionTableComponent"
+  subTitle="Since there is not design spec for accordion table, only skeleton is provided">
+  <app-viewbox>
+    <crm-accordion-table [rows]="rows">
+      <!-- header -->
+      <ng-template crmAccordionHeaderItem identifier="name">
+        Name
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="age">
+        Age
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="job">
+        Job
+      </ng-template>
+
+      <!-- body -->
+      <ng-template crmAccordionBodyItem identifier="name" let-item="item">
+        Name: {{item.name}}
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem identifier="age" let-item="item">
+        Age: {{item.age}}
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem identifier="job" let-item="item">
+        Job: {{item.job}}
+      </ng-template>
+    </crm-accordion-table>
+  </app-viewbox>
+
+  <app-codebox path="/accordion-table/01"></app-codebox>
+</app-description>
+
+<app-description
+  title="CrmAccordionTableComponent"
+  subTitle="Accordion table with default bottom border">
+  <app-viewbox>
+    <crm-accordion-table [rows]="rows" useBorderBottom>
+      <!-- header -->
+      <ng-template crmAccordionHeaderItem identifier="name">
+        Name
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="age">
+        Age
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="job">
+        Job
+      </ng-template>
+
+      <!-- body -->
+      <ng-template crmAccordionBodyItem identifier="name" let-item="item">
+        Name: {{item.name}}
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem identifier="age" let-item="item">
+        Age: {{item.age}}
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem identifier="job" let-item="item">
+        Job: {{item.job}}
+      </ng-template>
+    </crm-accordion-table>
+  </app-viewbox>
+
+  <app-codebox path="/accordion-table/02"></app-codebox>
+</app-description>
+
+<app-description
+  title="CrmAccordionTableComponent"
+  subTitle="Accordion table with default top border">
+  <app-viewbox>
+    <crm-accordion-table [rows]="rows" useBorderTop>
+      <!-- header -->
+      <ng-template crmAccordionHeaderItem identifier="name">
+        Name
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="age">
+        Age
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="job">
+        Job
+      </ng-template>
+
+      <!-- body -->
+      <ng-template crmAccordionBodyItem identifier="name" let-item="item">
+        Name: {{item.name}}
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem identifier="age" let-item="item">
+        Age: {{item.age}}
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem identifier="job" let-item="item">
+        Job: {{item.job}}
+      </ng-template>
+    </crm-accordion-table>
+  </app-viewbox>
+
+  <app-codebox path="/accordion-table/03"></app-codebox>
+</app-description>
+
+<app-description
+  title="CrmAccordionTableComponent"
+  subTitle="Accordion table with both top/bottom border">
+  <app-viewbox>
+    <crm-accordion-table [rows]="rows" useBorderTop useBorderBottom>
+      <!-- header -->
+      <ng-template crmAccordionHeaderItem identifier="name">
+        Name
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="age">
+        Age
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="job">
+        Job
+      </ng-template>
+
+      <!-- body -->
+      <ng-template crmAccordionBodyItem identifier="name" let-item="item">
+        Name: {{item.name}}
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem identifier="age" let-item="item">
+        Age: {{item.age}}
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem identifier="job" let-item="item">
+        Job: {{item.job}}
+      </ng-template>
+    </crm-accordion-table>
+  </app-viewbox>
+
+  <app-codebox path="/accordion-table/04"></app-codebox>
+</app-description>
+
+<app-description
+  title="CrmPageableAccordionTableComponent"
+  subTitle="Pageable accordion table component">
+  <app-viewbox>
+    <crm-pageable-accordion-table [(page)]="page" [data]="rootRows" childrenProperty="products">
+      <!-- header -->
+      <!-- item in header is root list and only available in <crm-pageable-accordion-table> -->
+      <ng-template crmAccordionHeaderItem let-item="item" identifier="name">
+        <div>
+          <div>Type: {{item.category}}</div>
+          <div>Workers: {{item.workers}}</div>
+        </div>
+      </ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="price"></ng-template>
+      <ng-template crmAccordionHeaderItem identifier="duration"></ng-template>
+
+      <ng-template crmAccordionHeaderItem identifier="worker" horizontalAlign="end" let-item="item">
+        <div>
+          <div>Price: {{item.price}}</div>
+          <div>Duration: {{item.duration}}</div>
+        </div>
+      </ng-template>
+
+      <!-- body -->
+      <ng-template crmAccordionBodyItem let-item="item" identifier="name">
+        <div>
+          <div>Product Name</div>
+          <div class="semi-bold">{{item.name}}</div>
+        </div>
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem let-item="item" identifier="price">
+        <div>
+          <div>Product Price</div>
+          <div class="semi-bold">${{item.price}}</div>
+        </div>
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem let-item="item" identifier="duration">
+        <div>
+          <div>Duration</div>
+          <div class="semi-bold">{{item.duration}}s</div>
+        </div>
+      </ng-template>
+
+      <ng-template crmAccordionBodyItem let-item="item" identifier="worker">
+        <div>
+          <div>Worker</div>
+          <div class="semi-bold">{{item.worker}}</div>
+        </div>
+      </ng-template>
+    </crm-pageable-accordion-table>
+  </app-viewbox>
+
+  <app-codebox path="/accordion-table/05"></app-codebox>
+</app-description>

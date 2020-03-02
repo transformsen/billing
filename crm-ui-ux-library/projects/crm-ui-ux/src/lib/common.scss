@@ -1,0 +1,91 @@
+$black: #000;
+$white: #fff;
+$theme: #009bdb;
+$dark-theme: #0079bc;
+$darker-theme: #005A9E;
+$table-border: #cfcdcc;
+$dark-grey: #6E6F77;
+$dark-black: #333333;
+$link: #0078D4;
+$green: #33A852;
+$placeholder: #767676;
+$hover: #0088F1;
+$disabled-background: #F0F0F0;
+$row-background: #f3f9ff;
+$error: #D23432;
+
+@mixin flex($align: null, $justify: null, $direction: null) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin box($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin ball($size) {
+  @include box($size);
+  border-radius: 50%;
+}
+
+@mixin padding($padding) {
+  box-sizing: border-box;
+  padding: $padding;
+}
+
+@mixin border($position, $border) {
+  box-sizing: border-box;
+
+  @if ($position) {
+    border-#{$position}: $border;
+  }
+  @else {
+    border: $border;
+  }
+}
+
+@mixin semiBoldS {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@mixin semiBoldM {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@mixin semiBoldSL {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+@mixin semiBoldL {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@mixin regularS {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@mixin regularXS {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@mixin break($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+// for explorer
+@mixin ie {
+  @media screen and (min-width: 0 \0) and (min-resolution: +72dpi) {
+    @content;
+  }
+}

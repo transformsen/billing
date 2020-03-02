@@ -1,0 +1,17 @@
+@import "../../common";
+
+:host {
+  display: block;
+  position: relative;
+
+  .content {
+    @include box(100%);
+    line-height: 19px;
+  }
+
+  crm-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="content" #contentElement>
+  {{visibleContent}}
+</div>
+<crm-button
+  (click)="expanded ? setEllipsis() : expandVisibleContent()"
+  *ngIf="overflowed"
+  class="ellipsis-expander"
+  type="inline">
+  {{expanded ? 'less' : 'more'}}
+</crm-button>

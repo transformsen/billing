@@ -1,0 +1,56 @@
+<crm-page-content>
+  <crm-group direction="vertical" gap="26">
+    <div class="fields" crmGroupItem>
+      <crm-field label="Group Name">
+        <crm-input placeholder="Abc..." (valueChange)="groupName = $event"></crm-input>
+      </crm-field>
+
+      <crm-field label="Group ID">
+        <crm-input placeholder="00000000" (valueChange)="groupId = $event"></crm-input>
+      </crm-field>
+
+      <crm-field label="Subgroup ID">
+        <crm-input placeholder="0000" (valueChange)="subGroupId = $event"></crm-input>
+      </crm-field>
+    </div>
+
+    <div class="buttons" crmGroupItem>
+      <crm-button search (click)="fetchData()">
+        Search
+      </crm-button>
+
+      <crm-button type="inline" (click)="reset()">
+        Clear all
+      </crm-button>
+    </div>
+
+    <crm-section display="vertical" crmGroupItem *ngIf="(data$ | async) as rows; else loading">
+      <crm-section-header>
+        {{rows.length}} Search Results
+      </crm-section-header>
+
+      <crm-section-content>
+        <crm-auto-table [rows]="rows" [columns]="columns">
+          <ng-template crmCustomCell property="subgroupId" let-item="item">
+            <crm-button type="inline" (click)="billingSubGroup(item.subgroupId, item.subgroupName)">
+              {{item.subgroupId}}
+            </crm-button>
+          </ng-template>
+
+          <ng-template crmCustomCell property="subgroupName" let-item="item">
+            <crm-button type="inline" (click)="billingSubGroup(item.subgroupId, item.subgroupName)">
+              {{item.subgroupName}}
+            </crm-button>
+          </ng-template>
+        </crm-auto-table>
+      </crm-section-content>
+    </crm-section>
+    <ng-template #loading>
+      <crm-section display="vertical" class="loading-data">
+        <crm-section-content>
+            loading...
+        </crm-section-content>
+      </crm-section>
+    </ng-template>
+  </crm-group>
+</crm-page-content>

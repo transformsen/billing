@@ -1,0 +1,32 @@
+@import "../../common";
+
+:host {
+  position: relative;
+  display: block;
+  margin-top: 40px;
+
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .sub-title {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    @include flex(null, null, column);
+
+    ::ng-deep {
+      app-viewbox, app-codebox {
+        width: 100%;
+      }
+
+      app-viewbox + app-codebox {
+        margin-top: 20px;
+      }
+    }
+  }
+}

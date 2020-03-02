@@ -1,0 +1,130 @@
+@import "../../common";
+
+:host {
+  display: block;
+
+  .top, .bottom {
+    position: relative;
+  }
+
+  .top {
+    .tooltip {
+      bottom: 0;
+
+      &::after, &::before {
+        top: 100%;
+      }
+
+      &::after {
+        border-top-color: $white;
+      }
+
+      &::before {
+        border-top-color: $link;
+      }
+    }
+  }
+
+  .bottom {
+    .tooltip {
+      top: 0;
+
+      &::after, &::before {
+        bottom: 100%;
+      }
+
+      &::after {
+        border-bottom-color: $white;
+      }
+
+      &::before {
+        border-bottom-color: $link;
+      }
+    }
+  }
+
+  .tooltip {
+    @include border(null, 1px solid $link);
+    @include padding(20px);
+    @include regularS;
+    box-shadow: 0 2px 4px rgba($black, .5);
+    position: absolute;
+    background: $white;
+    z-index: 30;
+    border-radius: 2px;
+    width: 245px;
+    line-height: 19px;
+
+    &::after, &::before {
+      left: 15px;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &::after {
+      border-color: rgba(250, 253, 255, 0);
+      border-width: 8px;
+      margin-left: -8px;
+    }
+
+    &::before {
+      border-color: rgba(30, 136, 217, 0);
+      border-width: 9px;
+      margin-left: -9px;
+    }
+  }
+
+  .tooltip {
+    &.small {
+      padding: 4px 8px;
+      @include regularXS;
+      box-shadow: none;
+      width: 135px;
+      line-height: 16px;
+
+      &::after {
+        border-width: 4px;
+        margin-left: -4px;
+      }
+
+      &::before {
+        border-width: 5px;
+        margin-left: -5px;
+      }
+    }
+
+    &.dark {
+      color: $white;
+      background: $dark-black;
+      border-color: $dark-black;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .top {
+    .tooltip {
+      &.dark {
+        &::after {
+          border-top-color: $dark-black;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    .tooltip {
+      &.dark {
+        &::after {
+          border-bottom-color: $dark-black;
+        }
+      }
+    }
+  }
+}

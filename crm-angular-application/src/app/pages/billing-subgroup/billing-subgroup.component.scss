@@ -1,0 +1,130 @@
+@import "../../common";
+
+:host {
+  display: block;
+  
+  crm-page-header {
+    position: fixed; // IE-11
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .sections {
+    @include flex();
+
+    .section {
+      width: calc((100% - 60px) / 3);
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+
+    .section + .section {
+      margin-left: 30px;
+    }
+
+    @include break(960px) {
+      @include flex(null, null, column);
+
+      .section {
+        width: 100%;
+      }
+
+      .section + .section {
+        margin-top: 20px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .billing-notes-table {
+    ::ng-deep {
+      [crm-column='modified-date'], [crm-column='description'] {
+        width: 150px;
+      }
+
+      [crm-column='note-from-billing'] {
+        width: 550px;
+      }
+    }
+  }
+
+  .bills-table {
+    ::ng-deep {
+      [crm-column]:not([crm-column='select-column']) {
+        width: 120px;
+      }
+    }
+  }
+
+  .payments-table {
+    ::ng-deep {
+      [crm-column]:not([crm-column='select-column']):not([crm-column='memo']):not([crm-column='reason']) {
+        width: 120px;
+      }
+
+      [crm-column='memo'], [crm-column='reason'] {
+        width: 240px;
+      }
+    }
+  }
+
+  [crmTooltipContent] {
+    span {
+      color: #33A852;
+    }
+
+    crm-icon {
+      @include box(auto);
+    }
+  }
+
+  .controller {
+    @include padding(5px 10px);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #888;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+
+  .sections-2 {
+    @include flex();
+    flex-wrap: wrap;
+
+    crm-section {
+      max-width: calc((100% - 30px) / 2);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+
+    crm-section:nth-child(2n) {
+      margin-left: 30px;
+    }
+
+    @include break(960px) {
+      @include flex(null, null, column);
+
+      crm-section {
+        max-width: 100%;
+      }
+
+      crm-section:nth-child(2n) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+.loading-data{
+  margin: 10px;
+}
+.table{
+  margin-top: 20px;
+}

@@ -1,0 +1,27 @@
+<crm-section crmGroupItem>
+    <crm-section-header>
+        Payments
+    </crm-section-header>
+
+    <crm-section-content>
+        <crm-auto-table [(page)]="paymentsPage" [columns]="paymentsColumns" [rows]="payments"
+            class="payments-table" pageable selectable>
+
+            <div crmTooltipContent>
+                Custom tooltip content
+            </div>
+
+            <ng-template crmCustomCell property="amount" let-item="item">
+                <crm-amount [value]="item.amount"></crm-amount>
+            </ng-template>
+
+            <ng-template crmCustomCell property="memo" let-item="item">
+                <crm-ellipsis-content [content]="item.memo" maxLine="3"></crm-ellipsis-content>
+            </ng-template>
+
+            <ng-template crmCustomCell property="reason" let-item="item">
+                <crm-ellipsis-content [content]="item.reason" maxLine="3"></crm-ellipsis-content>
+            </ng-template>
+        </crm-auto-table>
+    </crm-section-content>
+</crm-section>

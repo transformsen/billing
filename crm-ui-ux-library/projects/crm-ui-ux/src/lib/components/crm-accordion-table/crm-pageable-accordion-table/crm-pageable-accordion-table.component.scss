@@ -1,0 +1,39 @@
+@import "../../../common";
+
+:host {
+  position: relative;
+
+  .container {
+    @include flex();
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    .list {
+      @include flex(null, null, column);
+      flex-grow: 1;
+      width: 100%;
+    }
+  }
+
+  crm-accordion-table {
+    overflow: visible;
+  }
+
+  .table-footer {
+    @include flex(center, center);
+    width: 100%;
+    height: 47px;
+
+    &.no-next {
+      height: 26px;
+    }
+
+    @include break(960px) {
+      &.no-next {
+        height: 0;
+      }
+    }
+  }
+}

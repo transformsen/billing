@@ -1,0 +1,22 @@
+<table>
+  <colgroup>
+    <col [attr.crm-field-column]="'select-column'">
+    <col>
+  </colgroup>
+
+  <tbody>
+    <tr *ngFor="let directive of crmFieldTableContentDirectives">
+      <td class="select-cell">
+        <crm-icon
+          *ngIf="directive.isSelectable"
+          (click)="directive.selectedChange.emit(true)"
+          [icon]="directive.selected ? 'document-check' : 'document-add'"
+          clickable></crm-icon>
+      </td>
+
+      <td class="field-cell" [class.selected]="directive.isSelectable && directive.selected">
+        <ng-container *ngTemplateOutlet="directive.templateRef"></ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>

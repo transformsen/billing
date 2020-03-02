@@ -1,0 +1,28 @@
+@import "../../../common";
+
+:host {
+  @include padding(0 8px);
+  @include flex(center, center);
+  @include semiBoldM;
+  position: relative;
+  margin: 0 16px;
+  height: 100%;
+  color: $white;
+  cursor: pointer;
+  white-space: nowrap;
+
+  .indicator {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 6px;
+    background-color: rgba($white, .15);
+  }
+
+  &.active {
+    .indicator {
+      background-color: $white;
+    }
+  }
+}

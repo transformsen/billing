@@ -1,0 +1,12 @@
+@import "../../common";
+
+:host {
+  display: block;
+  
+  crm-page-header {
+    position: fixed; // IE-11
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+}

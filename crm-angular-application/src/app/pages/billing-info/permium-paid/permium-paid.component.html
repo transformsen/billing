@@ -1,0 +1,15 @@
+<crm-section>
+        <crm-section-header>
+          Current Billing Status
+        </crm-section-header>
+      
+        <crm-section-content>
+          <crm-field-table>
+            <ng-template *ngFor="let item of premimumPaid" crmFieldTableContent [selectable]="selectable">
+              <crm-field label="{{item.year}}">
+                {{item.amount}}
+              </crm-field>
+            </ng-template>      
+          </crm-field-table>
+        </crm-section-content>
+      </crm-section>

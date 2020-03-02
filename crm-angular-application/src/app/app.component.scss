@@ -1,0 +1,17 @@
+crm-section {
+  margin-top: 50px;
+  width: 300px;
+}
+
+:host {
+  ::ng-deep {
+    [crm-column='field-1'] {
+      width: 300px;
+    }
+
+    [crm-column='field-2'] {
+      width: 300px;
+    }
+  }
+}
+

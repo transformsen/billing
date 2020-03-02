@@ -1,0 +1,17 @@
+@import "../../common";
+
+@mixin direction($direction) {
+  &[crm-group-direction='#{$direction}'] {
+    @content;
+  }
+}
+
+:host {
+  @include direction('horizontal') {
+    @include flex();
+  }
+
+  @include direction('vertical') {
+    @include flex(null, null, column);
+  }
+}

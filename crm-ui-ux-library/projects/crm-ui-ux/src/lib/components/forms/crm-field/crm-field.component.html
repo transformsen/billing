@@ -1,0 +1,12 @@
+<div class="label">
+  {{label}} <span *ngIf="isRequired" class="asterisk">&#42;</span>
+</div>
+<div class="content">
+  <ng-content></ng-content>
+</div>
+<div *ngIf="helper" class="helper">
+  {{helper}}
+</div>
+<div *ngIf="hasError" class="error">
+  {{errorMessage}}
+</div>

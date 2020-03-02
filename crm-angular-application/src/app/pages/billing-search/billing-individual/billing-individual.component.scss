@@ -1,0 +1,68 @@
+@import "../../../common";
+
+:host {
+  display: block;
+ 
+  .fields {
+    @include flex(center);
+
+    crm-field {
+      width: 210px;
+    }
+
+    crm-field + crm-field {
+      margin-left: 30px;
+    }
+
+    @include break(960px) {
+      @include flex(null, null, column);
+
+      crm-field {
+        width: 100%;
+      }
+
+      crm-field + crm-field {
+        margin-left: 0;
+        margin-top: 25px;
+      }
+    }
+  }
+
+  .buttons {
+    @include flex(center);
+    width: 100%;
+
+    crm-button:first-of-type {
+      width: 210px;
+    }
+
+    crm-button + crm-button {
+      margin-left: 16px;
+    }
+
+    @include break(960px) {
+      @include flex(null, null, column);
+
+      crm-button:first-of-type, crm-button {
+        width: 100%;
+      }
+
+      crm-button + crm-button {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  ::ng-deep {
+    [crm-column] {
+      width: 130px;
+    }
+  }
+}
+.loading-data{
+  margin-top: 26px;
+  crm-section-content{
+    margin: 20px;
+  }
+}

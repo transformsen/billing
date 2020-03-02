@@ -1,0 +1,60 @@
+<app-description title="CrmFieldComponent" subTitle="Default field component">
+  <app-viewbox>
+    <crm-field label="Label">
+      Value
+    </crm-field>
+  </app-viewbox>
+
+  <app-codebox path="/field/01"></app-codebox>
+</app-description>
+
+<app-description title="CrmFieldComponent" subTitle="Required field component">
+  <app-viewbox>
+    <crm-field label="Label" required>
+      Value
+    </crm-field>
+  </app-viewbox>
+
+  <app-codebox path="/field/02"></app-codebox>
+</app-description>
+
+<app-description title="CrmFieldComponent" subTitle="Field component with input component">
+  <app-viewbox>
+    <crm-field label="Label">
+      <crm-input></crm-input>
+    </crm-field>
+  </app-viewbox>
+
+  <app-codebox path="/field/03"></app-codebox>
+</app-description>
+
+<app-description title="CrmFieldComponent" subTitle="Validating value with input component">
+  <app-viewbox>
+    <crm-group direction="vertical" gap="20">
+      <crm-field crmGroupItem label="Label" [validators]="onlyRequiredValidators" (valueInvalid)="handleInvalid()">
+        <crm-input></crm-input>
+      </crm-field>
+
+      <crm-field crmGroupItem label="Label" [validators]="requiredDateValidators" (valueInvalid)="handleInvalid()">
+        <crm-input type="date" placeholder="MM/DD/YYYY"></crm-input>
+      </crm-field>
+
+      <crm-field crmGroupItem label="Label" [validators]="requiredSSNValidators" (valueInvalid)="handleInvalid()">
+        <crm-input type="ssn" placeholder="000-00-0000"></crm-input>
+      </crm-field>
+    </crm-group>
+  </app-viewbox>
+
+  <app-codebox path="/field/04"></app-codebox>
+</app-description>
+
+
+<app-description title="CrmFieldComponent" subTitle="Using helper text">
+  <app-viewbox>
+    <crm-field label="Label" helper="Helper text is here">
+      <crm-input></crm-input>
+    </crm-field>
+  </app-viewbox>
+
+  <app-codebox path="/field/05"></app-codebox>
+</app-description>

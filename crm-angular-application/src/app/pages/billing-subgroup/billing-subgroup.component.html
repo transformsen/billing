@@ -1,0 +1,41 @@
+<crm-page-header>
+  <crm-page-sub-title routerLink="/">
+    BILLING
+  </crm-page-sub-title>
+
+  <crm-page-title routerLink="/">
+    {{subGroupName}}
+  </crm-page-title>
+</crm-page-header>
+
+<crm-page-content *ngIf="(subGroupData$ | async) as subGroupData; else loading">
+  <crm-group direction="vertical" gap="20">
+    <div class="sections" crmGroupItem>
+      <app-current-billing-info class="section" 
+        [currentBillinginfo]="subGroupData.currentBillinginfo" 
+        [selectStates]="selectStates" [selectable]="selectable">
+      </app-current-billing-info>
+      <app-current-billing-status class="section" 
+        [currentBillingStatus]="subGroupData.currentBillingStatus"
+        [selectStates]="selectStates" [selectable]="selectable">
+      </app-current-billing-status>
+      <app-billing-contact class="section" 
+        [billingContact]="subGroupData.billingContact"
+         [selectStates]="selectStates" [selectable]="selectable">
+      </app-billing-contact>
+    </div>
+    <app-billing-notes class="table"
+      [billingNotes]="subGroupData.billingNotes">
+    </app-billing-notes>
+    <app-bills class="table" [bills]="subGroupData.bills"></app-bills>
+    <app-payments class="table" [payments]="subGroupData.payments"></app-payments>    
+  </crm-group>
+</crm-page-content>
+<ng-template #loading>
+  <div class="loading-data">
+    loading...
+  </div>
+</ng-template>
+<div class="controller" (click)="selectable = !selectable">
+  Toggle selectable
+</div>

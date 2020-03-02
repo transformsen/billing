@@ -1,0 +1,16 @@
+:host {
+  ::ng-deep {
+    pre, pre * {
+      font-family: 'Segoe Mono', monospace;
+      font-size: 13px;
+    }
+
+    code {
+      color: #905;
+      background-color: #f5f2f0;
+      padding: 2px 3px;
+      border-radius: 2px;
+      font-size: 14px;
+    }
+  }
+}

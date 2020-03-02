@@ -1,0 +1,13 @@
+<button
+  [disabled]="isDisabled"
+  (focus)="focused = true"
+  (blur)="focused = false"
+  (mousedown)="active = true"
+  (mouseup)="active = false"
+  (mouseenter)="hovered = true"
+  (mouseleave)="hovered = false; active = false">
+  <span>
+    <ng-content></ng-content>
+  </span>
+  <crm-icon *ngIf="isDropdown || isSearch" [icon]="getIcon()"></crm-icon>
+</button>

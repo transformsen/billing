@@ -1,0 +1,15 @@
+<crm-section crmGroupItem>
+    <crm-section-header>
+        Billing Notes
+    </crm-section-header>
+
+    <crm-section-content>
+        <crm-auto-table [(page)]="billingNotesPage" [columns]="billingNotesColumns"
+            [rows]="billingNotes" class="billing-notes-table" pageable>
+
+            <ng-template crmCustomCell property="note" let-item="item">
+                <crm-ellipsis-content [content]="item.note" maxLine="3"></crm-ellipsis-content>
+            </ng-template>
+        </crm-auto-table>
+    </crm-section-content>
+</crm-section>

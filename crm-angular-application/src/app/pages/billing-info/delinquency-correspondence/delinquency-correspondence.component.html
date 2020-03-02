@@ -1,0 +1,20 @@
+<crm-section crmGroupItem>
+        <crm-section-header>
+                Delinquency Correspondence
+        </crm-section-header>
+    
+        <crm-section-content>
+            <crm-auto-table [(page)]="page" [columns]="columns" 
+                [rows]="delinquencyCorrespondence"
+                class="bills-table" pageable selectable>
+    
+                <div crmTooltipContent>
+                    Custom tooltip content Custom tooltip
+                    <span>
+                        <crm-icon icon="document-add"></crm-icon> with Icon
+                    </span>
+                    contentCustom tooltip contentCustom tooltip content
+                </div>
+            </crm-auto-table>
+        </crm-section-content>
+    </crm-section>

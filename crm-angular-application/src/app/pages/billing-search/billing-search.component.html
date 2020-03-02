@@ -1,0 +1,18 @@
+<crm-page-header>
+  <crm-page-title routerLink="/">
+    Billing Search
+  </crm-page-title>
+
+  <crm-page-tab [(value)]="tab" (valueChange)="tabSelection($event)">
+    <crm-page-tab-item value="individual">
+      INDIVIDUAL
+    </crm-page-tab-item>
+
+    <crm-page-tab-item value="group">
+      GROUP
+    </crm-page-tab-item>
+  </crm-page-tab>
+</crm-page-header>
+
+<app-billing-group *ngIf="tab=='group'"></app-billing-group>
+<app-billing-individual *ngIf="tab == 'individual'"></app-billing-individual>

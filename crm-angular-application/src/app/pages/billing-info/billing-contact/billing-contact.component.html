@@ -1,0 +1,27 @@
+<crm-section>
+        <crm-section-header>
+          Billing Contact
+        </crm-section-header>
+
+        <crm-section-content>
+          <crm-field-table>
+            <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="selectStates.name">
+              <crm-field label="Name">
+                {{billingContact.name}}
+              </crm-field>
+            </ng-template>
+
+            <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="selectStates.phone">
+              <crm-field label="Phone">
+                {{billingContact.phone}}
+              </crm-field>
+            </ng-template>
+          </crm-field-table>
+
+          <crm-section-content-footer align="center">
+            <crm-button type="secondary">
+              View Breakdown
+            </crm-button>
+          </crm-section-content-footer>
+        </crm-section-content>
+      </crm-section>

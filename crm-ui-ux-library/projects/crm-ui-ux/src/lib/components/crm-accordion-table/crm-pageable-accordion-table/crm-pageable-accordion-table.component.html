@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="list">
+    <crm-accordion-table *ngFor="let d of visibleData" [rows]="d | crmColumnData: childrenProperty" useBorderBottom>
+      <ng-container *ngFor="let directive of crmAccordionHeaderItemDirectives">
+        <ng-template
+          [horizontalAlign]="directive.horizontalAlign"
+          [verticalAlign]="directive.verticalAlign"
+          [identifier]="directive.identifier"
+          crmAccordionHeaderItem>
+          <ng-container *ngTemplateOutlet="directive.templateRef; context: {item: d}"></ng-container>
+        </ng-template>
+      </ng-container>
+
+      <ng-container *ngFor="let directive of crmAccordionBodyItemDirectives">
+        <ng-template
+          [horizontalAlign]="directive.horizontalAlign"
+          [verticalAlign]="directive.verticalAlign"
+          [identifier]="directive.identifier"
+          crmAccordionBodyItem let-item="item">
+          <ng-container *ngTemplateOutlet="directive.templateRef; context: {item: item}"></ng-container>
+        </ng-template>
+      </ng-container>
+    </crm-accordion-table>
+  </div>
+</div>
+
+<div class="table-footer" [class.no-next]="!hasNext">
+  <crm-button (click)="getNextPage()" *ngIf="hasNext" dropdown type="inline">
+    Show more
+  </crm-button>
+</div>

@@ -1,0 +1,18 @@
+@import "../../../common";
+
+:host {
+  @include flex(center);
+  @include padding(0 47px);
+  background-color: $dark-theme;
+  width: 100%;
+  height: 42px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+
+  @include break(960px) {
+    @include padding(0 10px);
+  }
+}

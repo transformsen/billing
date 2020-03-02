@@ -1,0 +1,6 @@
+@import "../../common";
+
+:host {
+  @include flex(center, center);
+  @include box(100%);
+}

@@ -1,0 +1,9 @@
+@import "../../common";
+
+:host {
+  @include padding(26px 16px);
+  display: block;
+  width: 100%;
+  max-width: 962px;
+  margin: 0 auto;
+}

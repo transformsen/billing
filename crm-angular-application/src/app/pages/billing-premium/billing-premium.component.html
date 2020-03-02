@@ -1,0 +1,19 @@
+<crm-page-header>
+  <crm-page-title routerLink="/">
+    Billing Search
+  </crm-page-title>
+  <crm-page-title routerLink="/">
+    {{policyName}}
+  </crm-page-title>
+  <crm-page-tab [(value)]="tab" (valueChange)="setSelectedTab($event)">
+    <crm-page-tab-item value="billing-info">
+      BILLING INFO
+    </crm-page-tab-item>
+
+    <crm-page-tab-item value="premium-breakdown">
+      PREMIUM BREAKDOWN
+    </crm-page-tab-item>
+  </crm-page-tab>
+</crm-page-header>
+<app-billing-info *ngIf="tab == 'billing-info'" [policyId]="policyId"></app-billing-info>
+<app-premium-breakdown *ngIf="tab == 'premium-breakdown'" [policyId]="policyId"></app-premium-breakdown>

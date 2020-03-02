@@ -1,0 +1,39 @@
+<crm-section>
+  <crm-section-header>
+    Current Billing Status
+  </crm-section-header>
+
+  <crm-section-content>
+    <crm-field-table>
+      <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="selectStates.suspendedBilling">
+        <crm-field label="Suspended Billing">
+          {{currentBillingStatus.suspendedBilling}}
+        </crm-field>
+      </ng-template>
+
+      <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="selectStates.netAmountDue">
+        <crm-field label="Net Amount Due">
+          {{currentBillingStatus.netAmountDue}}
+        </crm-field>
+      </ng-template>
+
+      <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="selectStates.currentSuspense">
+        <crm-field label="Current Suspense">
+          {{currentBillingStatus.currentSuspense}}
+        </crm-field>
+      </ng-template>
+
+      <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="selectStates.eligibilityThroughDate">
+        <crm-field label="Eligibility Through Date">
+          {{currentBillingStatus.eligibilityThroughDate}}
+        </crm-field>
+      </ng-template>
+
+      <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="selectStates.potentialLateFeeAmount">
+        <crm-field label="Potential Late Fee Amount">
+          {{currentBillingStatus.potentialLateFeeAmount}}
+        </crm-field>
+      </ng-template>
+    </crm-field-table>
+  </crm-section-content>
+</crm-section>

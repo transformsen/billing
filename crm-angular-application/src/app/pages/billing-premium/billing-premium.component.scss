@@ -1,0 +1,92 @@
+@import "../../common";
+
+:host {
+  display: block;
+  
+  crm-page-header {
+    position: fixed; // IE-11
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-content {
+    @include flex(null, null, column);
+
+    &.padding {
+      @include padding(13px 0);
+    }
+  }
+
+  .header-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 7px;
+  }
+
+  ::ng-deep {
+    [crm-accordion-column='name'] {
+      width: 330px;
+    }
+
+    [crm-accordion-column='rate-area'] {
+      width: 110px;
+    }
+
+    [crm-accordion-column='tobacco-status'] {
+      width: 160px;
+    }
+
+    [crm-accordion-column='premium'] {
+      width: 190px;
+    }
+  }
+
+  .sb {
+    font-weight: 500;
+  }
+
+  .section-1 {
+    ::ng-deep {
+      .bar {
+        background-color: #333;
+      }
+    }
+  }
+
+  .section-3 {
+    ::ng-deep {
+      .bar {
+        background-color: #00828c;
+      }
+    }
+
+    crm-accordion-table {
+      ::ng-deep {
+        table {
+          thead {
+            tr {
+              th {
+                @include border(bottom, 1px solid #cfcdcc);
+              }
+            }
+          }
+
+          tbody {
+            tr:last-of-type {
+              td {
+                @include border(bottom, 1px solid #cfcdcc);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  crm-section-header {
+    .header-title {
+      @include padding(24px 0 24px 90px);
+    }
+  }
+}

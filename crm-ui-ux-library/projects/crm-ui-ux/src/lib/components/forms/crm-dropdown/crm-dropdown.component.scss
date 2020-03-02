@@ -1,0 +1,65 @@
+@import "../../../common";
+
+@mixin listPosition($position) {
+  &[crm-dropdown-list-position='#{$position}'] {
+    @content;
+  }
+}
+
+:host {
+  position: relative;
+  display: block;
+
+  &.opened {
+    .dropdown {
+      .icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dropdown {
+    @include flex(center, space-between);
+    cursor: pointer;
+
+    .value {
+      @include semiBoldS;
+    }
+  }
+
+  .list {
+    @include border(null, 1px solid $table-border);
+    position: absolute;
+    width: 100%;
+    max-height: calc((32px * 5) + 2px);
+    overflow: auto;
+    left: 0;
+    background-color: $white;
+    z-index: 50;
+
+    .item {
+      @include flex(center);
+      @include padding(0 8px);
+      @include regularS;
+      width: 100%;
+      height: 32px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $disabled-background;
+      }
+    }
+  }
+
+  @include listPosition('top') {
+    .list {
+      bottom: 100%;
+    }
+  }
+
+  @include listPosition('bottom') {
+    .list {
+      top: 100%;
+    }
+  }
+}

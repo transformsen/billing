@@ -1,0 +1,69 @@
+@import "./common";
+
+@font-face {
+  font-family: 'Segoe';
+  src: url('./fonts/segoeui.ttf') format('truetype'),
+    url('./fonts/segoeui.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Segoe';
+  src: url('./fonts/segoeuisl.ttf') format('truetype'),
+    url('/fonts/segoeuisl.woff') format('woff');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Segoe';
+  src: url('./fonts/segoeuil.ttf') format('truetype'),
+    url('./fonts/segoeuil.woff') format('woff');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Segoe';
+  src: url('./fonts/seguisb.ttf') format('truetype'),
+    url('./fonts/seguisb.woff') format('woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Segoe';
+  src: url('./fonts/segoeuib.ttf') format('truetype'),
+    url('./fonts/segoeuib.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Segoe Mono';
+  src: url('./fonts/SegUIMo.ttf') format('truetype'),
+    url('./fonts/SegUIMo.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Segoe Mono';
+  src: url('./fonts/SegUIMob.ttf') format('truetype'),
+    url('./fonts/SegUIMob.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Segoe MDL';
+  src: url('./fonts/SegMDL2.ttf') format('truetype'),
+    url('./fonts/SegMDL2.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Crm MDL';
+  src: url('./fonts/CRMMDL2.ttf') format('truetype'),
+    url('./fonts/CRMMDL2.woff') format('woff');
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: $link;
+}

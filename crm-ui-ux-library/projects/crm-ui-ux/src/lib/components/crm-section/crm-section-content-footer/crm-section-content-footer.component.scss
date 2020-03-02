@@ -1,0 +1,24 @@
+@import "../../../common";
+
+@mixin align($align) {
+  &[crm-section-footer-align='#{$align}'] {
+    @content;
+  }
+}
+
+:host {
+  @include padding(0 16px);
+  height: 55px;
+
+  @include align('start') {
+    @include flex(center, flex-start);
+  }
+
+  @include align('end') {
+    @include flex(center, flex-end);
+  }
+
+  @include align('center') {
+    @include flex(center, center);
+  }
+}

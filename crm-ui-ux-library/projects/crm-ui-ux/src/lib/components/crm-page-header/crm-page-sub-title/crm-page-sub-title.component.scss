@@ -1,0 +1,6 @@
+@import "../../../common";
+
+:host {
+  @include semiBoldS;
+  color: $white;
+}

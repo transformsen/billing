@@ -1,0 +1,188 @@
+@import "../../../common";
+
+@mixin type($type) {
+  &[crm-button-type='#{$type}'] {
+    @content;
+  }
+}
+
+@mixin align($align) {
+  &[crm-button-align='#{$align}'] {
+    @content;
+  }
+}
+
+@mixin borderBackgroundColor($color) {
+  border-color: $color;
+  background-color: $color;
+}
+
+:host {
+  @include border(null, 1px solid);
+  display: inline-block;
+  height: 36px;
+  color: $white;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: 0;
+
+  button {
+    @include padding(0 16px);
+    @include semiBoldS;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    color: inherit;
+    cursor: inherit;
+    background-color: $white;
+
+    &:active {
+      > * {
+        transform: translate(0, 0); // remove IE press effect
+      }
+    }
+  }
+
+  crm-icon {
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    margin-left: 8px;
+
+    ::ng-deep {
+      .segoe-mdl-icon {
+        color: inherit;
+      }
+    }
+  }
+
+  @include align('center') {
+    button {
+      @include flex(center, center);
+      text-align: center;
+    }
+  }
+
+  @include align('start') {
+    button {
+      @include flex(center, flex-start);
+      text-align: left;
+    }
+  }
+
+  @include align('end') {
+    button {
+      @include flex(center, flex-end);
+      text-align: right;
+    }
+  }
+
+  @include type('primary') {
+    @include borderBackgroundColor($link);
+
+    button {
+      background-color: $link;
+    }
+
+    &.hovered, &.focused {
+      @include borderBackgroundColor($hover);
+    }
+
+    &.focused:not(.active) {
+      border-width: 2px;
+
+      button {
+        // collapse padding
+        @include padding(0 13px);
+        @include border(null, 2px solid $white);
+      }
+    }
+
+    &.active {
+      @include borderBackgroundColor($darker-theme);
+
+      button {
+        background-color: $darker-theme;
+      }
+    }
+
+    &.disabled {
+      @include borderBackgroundColor($disabled-background);
+      color: $dark-black;
+
+      button {
+        background-color: $disabled-background;
+      }
+    }
+  }
+
+  @include type('secondary') {
+    border-color: $link;
+    background-color: $white;
+    color: $link;
+
+    &.hovered, &.focused {
+      border-color: $hover;
+    }
+
+    &.hovered, &.focused, &.active {
+      border-width: 2px;
+
+      button {
+        @include padding(0 15px);
+      }
+    }
+
+    &.focused:not(.active) {
+      @include padding(2px);
+
+      button {
+        // collapse padding
+        @include padding(0 11px);
+        @include border(null, 2px solid $hover);
+      }
+    }
+
+    &.active {
+      border-color: $darker-theme;
+      color: $darker-theme;
+    }
+
+    &.disabled {
+      @include borderBackgroundColor($disabled-background);
+      color: $dark-black;
+    }
+  }
+
+  @include type('inline') {
+    color: $link;
+    border: 0;
+    height: auto;
+
+    button {
+      @include padding(0);
+      background-color: transparent;
+    }
+
+    &.hovered, &.focused, &.active {
+      button {
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &.active {
+      button {
+        color: $darker-theme;
+      }
+    }
+
+    &.disabled {
+      button {
+        color: $placeholder;
+      }
+    }
+  }
+}

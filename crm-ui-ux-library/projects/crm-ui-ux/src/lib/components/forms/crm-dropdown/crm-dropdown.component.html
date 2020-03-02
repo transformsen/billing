@@ -1,0 +1,15 @@
+<div class="dropdown" (click)="toggle()">
+  <div class="value">
+    {{visiblePlaceholder}}
+  </div>
+
+  <div class="icon">
+    <crm-icon clickable icon="chevron-down"></crm-icon>
+  </div>
+</div>
+
+<div #listElement *ngIf="opened" class="list">
+  <div (click)="selectOption(option)" *ngFor="let option of options" class="item">
+    {{option.label}}
+  </div>
+</div>

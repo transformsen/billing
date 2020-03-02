@@ -1,0 +1,62 @@
+@import "../../../common";
+
+:host {
+  &:last-child {
+    @include padding(0 16px 20px);
+  }
+
+  @include padding(0 16px);
+  display: block;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td {
+    @include border(bottom, 1px solid $table-border);
+    vertical-align: middle;
+  }
+
+  .field-cell {
+    @include padding(0 16px 0 0);
+
+    ::ng-deep {
+      .content {
+        height: auto;
+        line-height: 18px;
+        margin: 4px 0 7px;
+      }
+    }
+
+    &.selected {
+      ::ng-deep {
+        .label, .content {
+          color: $green;
+
+          crm-button {
+            button {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  tr + tr {
+    .field-cell {
+      @include padding(10px 16px 0 0);
+    }
+  }
+
+  &.has-selectable {
+    [crm-field-column='select-column'] {
+      width: 32px;
+    }
+  }
+
+  [crm-field-column='select-column'] {
+    width: 16px;
+  }
+}

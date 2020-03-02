@@ -1,0 +1,337 @@
+<crm-page-content *ngIf="(premiumBreakdown$ | async) as premiumBreakdown; else loading">
+  <crm-group direction="vertical" gap="20">
+    <crm-section display="horizontal" crmGroupItem class="section-1">
+      <crm-section-header>
+          <div class="header-title">
+            Feature Rate
+          </div>
+        </crm-section-header>
+      <crm-section-content *ngIf="premiumBreakdown.featureRate as featureRate">
+        <crm-accordion-table [rows]="featureRate.details">
+          <!-- header set -->
+          <ng-template crmAccordionHeaderItem identifier="name">
+            <div class="header-content padding">              
+              <div class="header-details">
+                <div class="detail-item">
+                  Eligibility: <span class="sb">{{featureRate.eligibility}}</span>
+                </div>
+                <div class="detail-item">
+                  Product Name: {{featureRate.product}}
+                </div>
+                <div class="detail-item">
+                  Market Segment: {{featureRate.marketSegment}}
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- empty header to render col items -->
+          <ng-template crmAccordionHeaderItem identifier="rate-area"></ng-template>
+          <ng-template crmAccordionHeaderItem identifier="tobacco-status"></ng-template>
+
+          <ng-template crmAccordionHeaderItem identifier="premium" horizontalAlign="end" verticalAlign="bottom">
+            <div class="header-content">
+              <div class="header-details">
+                <div class="detail-item">
+                  Total Premium
+                </div>
+                <div class="detail-item">
+                  <span class="sb">{{featureRate.totalPremium}}</span>
+                </div>
+                <crm-button type="inline">
+                  Open Rate Sheet
+                </crm-button>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- body set -->
+          <ng-template crmAccordionBodyItem let-item="item" identifier="name" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Name
+              </div>
+              <crm-button type="inline">
+                {{item.name}}
+              </crm-button>
+              <div>
+                {{item.role}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="rate-area" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Rate Area
+              </div>
+              <div class="sb">
+                {{item.rateArea}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="tobacco-status" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Tobacco Status
+              </div>
+              <div class="sb">
+                {{item.tobaccoStatus}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="premium" verticalAlign="top"
+            horizontalAlign="end">
+            <div class="body-content">
+              <div class="sb">
+                Premium: {{item.premiums.premium}}
+              </div>
+              <div>
+                Medical Rate: {{item.premiums.medical}}
+              </div>
+              <div>
+                Dental Rate: {{item.premiums.dental}}
+              </div>
+              <div>
+                Vision Rate: {{item.premiums.vision}}
+              </div>
+              <div>
+                Contraceptive Rate: {{item.premiums.contraceptive}}
+              </div>
+              <div>
+                Service fee: {{item.premiums.service}}
+              </div>
+            </div>
+          </ng-template>
+        </crm-accordion-table>
+      </crm-section-content>
+    </crm-section>
+
+    <crm-section crmGroupItem display="horizontal" class="section-2">
+      <crm-section-header>
+        <div class="header-title">
+          Current Rate
+        </div>
+      </crm-section-header>
+
+      <crm-section-content *ngIf="premiumBreakdown.currentRate as currentRate">
+        <crm-accordion-table [rows]="currentRate.details" useBorderTop>
+          <!-- header set -->
+          <ng-template crmAccordionHeaderItem identifier="name">
+            <div class="header-content">
+              <div class="header-details">
+                <div class="detail-item">
+                  Eligibility: <span class="sb">{{currentRate.eligibility}}</span>
+                </div>
+                <div class="detail-item">
+                  Product Name: {{currentRate.product}}
+                </div>
+                <div class="detail-item">
+                  Market Segment: {{currentRate.marketSegment}}
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- empty header to render col items -->
+          <ng-template crmAccordionHeaderItem identifier="rate-area"></ng-template>
+          <ng-template crmAccordionHeaderItem identifier="tobacco-status"></ng-template>
+
+          <ng-template crmAccordionHeaderItem identifier="premium" horizontalAlign="end" verticalAlign="bottom">
+            <div class="header-content">
+              <div class="header-details">
+                <div class="detail-item">
+                  Total Premium
+                </div>
+                <div class="detail-item">
+                  <span class="sb">{{currentRate.totalPremium}}</span>
+                </div>
+                <crm-button type="inline">
+                  Open Rate Sheet
+                </crm-button>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- body set -->
+          <ng-template crmAccordionBodyItem let-item="item" identifier="name" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Name
+              </div>
+              <crm-button type="inline">
+                {{item.name}}
+              </crm-button>
+              <div>
+                {{item.role}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="rate-area" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Rate Area
+              </div>
+              <div class="sb">
+                {{item.rateArea}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="tobacco-status" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Tobacco Status
+              </div>
+              <div class="sb">
+                {{item.tobaccoStatus}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="premium" verticalAlign="top"
+            horizontalAlign="end">
+            <div class="body-content">
+              <div class="sb">
+                Premium: {{item.premiums.premium}}
+              </div>
+              <div>
+                Medical Rate: {{item.premiums.medical}}
+              </div>
+              <div>
+                Dental Rate: {{item.premiums.dental}}
+              </div>
+              <div>
+                Vision Rate: {{item.premiums.vision}}
+              </div>
+              <div>
+                Contraceptive Rate: {{item.premiums.contraceptive}}
+              </div>
+              <div>
+                Service fee: {{item.premiums.service}}
+              </div>
+            </div>
+          </ng-template>
+        </crm-accordion-table>
+      </crm-section-content>
+    </crm-section>
+
+    <crm-section crmGroupItem display="horizontal" class="section-3">
+      <crm-section-header>
+        <div class="header-title">
+          Previous Rate
+        </div>
+      </crm-section-header>
+      <crm-section-content *ngIf="premiumBreakdown.previousRate as previousRate">
+        <crm-pageable-accordion-table [(page)]="page" [data]="previousRate" childrenProperty="details">
+          <!-- header set -->
+          <ng-template crmAccordionHeaderItem identifier="name" let-item="item">
+            <div class="header-content">
+              <div class="header-details">
+                <div class="detail-item">
+                  Eligibility: <span class="sb">{{item.eligibility}}</span>
+                </div>
+                <div class="detail-item">
+                  Product Name: {{item.product}}
+                </div>
+                <div class="detail-item">
+                  Market Segment: {{item.marketSegment}}
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionHeaderItem identifier="rate-area"></ng-template>
+          <ng-template crmAccordionHeaderItem identifier="tobacco-status"></ng-template>
+
+          <ng-template crmAccordionHeaderItem horizontalAlign="end" identifier="premium" let-item="item"
+            verticalAlign="bottom">
+            <div class="header-content">
+              <div class="header-details">
+                <div class="detail-item">
+                  Total Premium
+                </div>
+                <div class="detail-item">
+                  <span class="sb">{{item.totalPremium}}</span>
+                </div>
+                <crm-button type="inline">
+                  Open Rate Sheet
+                </crm-button>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- body -->
+          <!-- body set -->
+          <ng-template crmAccordionBodyItem let-item="item" identifier="name" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Name
+              </div>
+              <crm-button type="inline">
+                {{item.name}}
+              </crm-button>
+              <div>
+                {{item.role}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="rate-area" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Rate Area
+              </div>
+              <div class="sb">
+                {{item.rateArea}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="tobacco-status" verticalAlign="top">
+            <div class="body-content">
+              <div>
+                Tobacco Status
+              </div>
+              <div class="sb">
+                {{item.tobaccoStatus}}
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template crmAccordionBodyItem let-item="item" identifier="premium" verticalAlign="top"
+            horizontalAlign="end">
+            <div class="body-content">
+              <div class="sb">
+                Premium: {{item.premiums.premium}}
+              </div>
+              <div>
+                Medical Rate: {{item.premiums.medical}}
+              </div>
+              <div>
+                Dental Rate: {{item.premiums.dental}}
+              </div>
+              <div>
+                Vision Rate: {{item.premiums.vision}}
+              </div>
+              <div>
+                Contraceptive Rate: {{item.premiums.contraceptive}}
+              </div>
+              <div>
+                Service fee: {{item.premiums.service}}
+              </div>
+            </div>
+          </ng-template>
+        </crm-pageable-accordion-table>
+      </crm-section-content>
+    </crm-section>
+  </crm-group>
+</crm-page-content>
+<ng-template #loading>
+  <div class="loading-data">
+    loading...
+  </div>
+</ng-template>

@@ -1,0 +1,212 @@
+@import "../../common";
+
+@mixin horizontalAlign($align) {
+  &[crm-accordion-column-halign='#{$align}'] {
+    @content;
+  }
+}
+
+@mixin verticalAlign($align) {
+  &[crm-accordion-column-valign='#{$align}'] {
+    @content;
+  }
+}
+
+:host {
+  display: block;
+  width: 100%;
+  overflow: auto;
+
+  table {
+    table-layout: fixed;
+    width: calc(100% - 32px);
+    border-collapse: collapse;
+    margin: 0 16px;
+    height: 100%;
+
+    .toggle {
+      @include border(null, 1px solid transparent);
+      @include flex(center, center);
+      width: 24px;
+      height: 26px;
+      border-radius: 4px;
+      flex-shrink: 0;
+
+      ::ng-deep {
+        .segoe-mdl-icon {
+          color: $link
+        }
+      }
+    }
+
+    [crm-accordion-column='toggle-column'] {
+      width: 32px;
+    }
+
+    [crm-accordion-column='select-column'] {
+      width: 56px;
+    }
+  }
+
+  &.opened {
+    table {
+      .toggle {
+        border-color: $link;
+        transform: rotate(180deg);
+      }
+    }
+
+    .header-cell {
+      @include border(bottom, 1px solid $table-border);
+    }
+  }
+
+  &.border-top {
+    table {
+      tr {
+        th {
+          @include border(top, 1px solid $table-border);
+        }
+      }
+    }
+  }
+
+  &.border-bottom {
+    table {
+      tr:last-of-type {
+        th, td {
+          @include border(bottom, 1px solid $table-border);
+        }
+      }
+    }
+  }
+}
+
+.header-cell {
+  position: relative;
+
+  .inner {
+    @include flex(center);
+  }
+
+  &.toggle-cell {
+    .inner {
+      height: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: calc(100% - 22px);
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1px;
+        background-color: $table-border;
+      }
+    }
+  }
+
+  &.select-cell {
+    .inner {
+      @include padding(0 24px 0 0);
+    }
+  }
+}
+
+.data-cell {
+  &.select-cell {
+    @include padding(16px 0 0 0);
+    vertical-align: top;
+  }
+}
+
+.accordion-cell {
+  .inner {
+    @include padding(13px 16px 13px 0);
+    @include regularS;
+  }
+
+  &.selected {
+    color: $green;
+
+    ::ng-deep {
+      crm-button {
+        button {
+          color: $green;
+        }
+      }
+    }
+  }
+
+  @include horizontalAlign('start') {
+    .inner {
+      @include flex(center, flex-start);
+      text-align: left;
+    }
+  }
+
+  @include horizontalAlign('end') {
+    .inner {
+      @include flex(center, flex-end);
+      text-align: right;
+    }
+  }
+
+  @include horizontalAlign('center') {
+    .inner {
+      @include flex(center, center);
+      text-align: center;
+    }
+  }
+
+  @include horizontalAlign('space') {
+    .inner {
+      @include flex(center, space-between);
+    }
+  }
+
+  @include verticalAlign('top') {
+    vertical-align: top;
+  }
+
+  @include verticalAlign('middle') {
+    vertical-align: middle;
+  }
+
+  @include verticalAlign('bottom') {
+    vertical-align: bottom;
+  }
+}
+
+tbody {
+  tr:nth-child(2n) {
+    td {
+      background-color: $row-background;
+    }
+
+    td:first-of-type, td:last-of-type {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        background-color: $row-background;
+        height: 100%;
+        width: 16px;
+      }
+    }
+
+    td:first-of-type {
+      &::before {
+        right: 100%;
+      }
+    }
+
+    td:last-of-type {
+      &::before {
+        left: 100%;
+      }
+    }
+  }
+}

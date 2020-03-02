@@ -1,0 +1,11 @@
+@import "../../common";
+
+:host {
+  @include flex(center);
+  @include padding(5px 10px);
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  width: 100%;
+  min-height: 40px;
+}

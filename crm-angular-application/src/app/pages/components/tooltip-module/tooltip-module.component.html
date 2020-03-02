@@ -1,0 +1,44 @@
+<app-description title="CrmTooltipComponent" subTitle="Tooltip component must be used with tooltip content directive">
+  <app-viewbox>
+    <div style="display: flex">
+      <crm-tooltip>
+        <crm-icon clickable icon="document-add"></crm-icon>
+        <div crmTooltipContent>
+          This is document add icon
+        </div>
+      </crm-tooltip>
+    </div>
+  </app-viewbox>
+
+  <app-codebox path="/tooltip/01"></app-codebox>
+</app-description>
+
+<app-description title="CrmTooltipComponent" subTitle="Set trigger as click">
+  <app-viewbox>
+    <div style="display: flex">
+      <crm-tooltip trigger="click">
+        <crm-icon clickable icon="document-add"></crm-icon>
+        <div crmTooltipContent>
+          This is document add icon
+        </div>
+      </crm-tooltip>
+    </div>
+  </app-viewbox>
+
+  <app-codebox path="/tooltip/02"></app-codebox>
+</app-description>
+
+<app-description title="CrmTooltipComponent" subTitle="Small and dark tooltip">
+  <app-viewbox>
+    <div style="display: flex">
+      <crm-tooltip size="small" theme="dark">
+        <crm-icon clickable icon="document-add"></crm-icon>
+        <div crmTooltipContent>
+          Expand Information
+        </div>
+      </crm-tooltip>
+    </div>
+  </app-viewbox>
+
+  <app-codebox path="/tooltip/03"></app-codebox>
+</app-description>  

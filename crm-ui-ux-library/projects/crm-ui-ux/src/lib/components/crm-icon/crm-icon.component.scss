@@ -1,0 +1,58 @@
+@import "../../common";
+
+:host {
+  @include box(32px);
+  @include flex(center, center);
+  display: inline-flex;
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  .segoe-mdl-icon {
+    font-family: 'Segoe MDL', 'Crm MDL';
+    font-weight: 400;
+    color: $dark-grey;
+    font-size: 14px;
+
+    &.sort-up {
+      &::before {
+        content: '\EE68';
+      }
+    }
+
+    &.sort-down {
+      &::before {
+        content: '\EE69';
+      }
+    }
+
+    &.filter {
+      &::before {
+        content: '\E71C';
+      }
+    }
+
+    &.help, &.help-blue {
+      &::before {
+        content: '\e9ce';
+      }
+    }
+
+    &.help-blue {
+      color: $link;
+    }
+
+    &.chevron-down {
+      &::before {
+        content: '\e972';
+      }
+    }
+
+    &.search {
+      &::before {
+        content: '\E721';
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<input
+  #inputElement
+  (mouseenter)="hovered = true"
+  (mouseleave)="hovered = false"
+  (focus)="focused = true"
+  (blur)="focused = false"
+  (keydown)="detectKeydown($event)"
+  (input)="detectInput($event)"
+  [disabled]="isDisabled"
+  [placeholder]="placeholder"/>

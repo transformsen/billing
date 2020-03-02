@@ -1,0 +1,76 @@
+<crm-table-container>
+  <!-- table field -->
+  <crm-table-field
+    *ngIf="tableField && tableField.value"
+    [label]="tableField.label"
+    [value]="tableField.value"
+    (onSelected)="selectTableField($event)">
+  </crm-table-field>
+
+  <crm-table>
+    <!-- colgroup -->
+    <crm-colgroup>
+      <col *ngIf="useSelecting" [attr.crm-column]="'select-column'">
+      <col *ngFor="let column of columns" [attr.crm-column]="column | crmColumnIdentifier">
+    </crm-colgroup>
+
+    <!-- header row -->
+    <crm-row header>
+      <!-- selectable column -->
+      <crm-cell *ngIf="useSelecting">
+        <crm-tooltip>
+          <crm-icon clickable icon="help-blue"></crm-icon>
+
+          <ng-container crmTooltipContent>
+            <ng-content select="[crmTooltipContent]"></ng-content>
+          </ng-container>
+        </crm-tooltip>
+      </crm-cell>
+
+      <!-- configured columns -->
+      <ng-container *ngFor="let column of columns">
+        <crm-cell
+          #headerCellComponent
+          [align]="(column.useSort || column.useFilter) ? 'space' : column.align ? column.align : 'start'"
+          [property]="column.property"
+          [sortable]="column.useSort"
+          [filterable]="column.useFilter"
+          (sortChange)="onSortChange($event, column)">
+          {{column.label}}
+        </crm-cell>
+      </ng-container>
+    </crm-row>
+
+    <!-- body row -->
+    <crm-row *ngFor="let row of visibleRows" [class.selected]="isSelectedRow(row)">
+      <!-- selectable column -->
+      <crm-cell *ngIf="useSelecting">
+        <crm-icon (click)="selectRow(row)" [icon]="isSelectedRow(row) ? 'document-check' : 'document-add'" clickable></crm-icon>
+      </crm-cell>
+
+      <!-- configured columns -->
+      <ng-container *ngFor="let column of columns">
+        <crm-cell [property]="column.property" [align]="column.align ? column.align : 'start'">
+          <!-- default cell content -->
+          <ng-container *ngIf="!column.useCustomCell; else customCellTemplate">
+            {{row | crmColumnData: column.property}}
+          </ng-container>
+
+          <!-- custom cell content -->
+          <ng-template #customCellTemplate>
+            <ng-container *ngIf="getCustomCellDirective(column.property)">
+              <ng-container
+                *ngTemplateOutlet="getCustomCellDirective(column.property).templateRef; context: {item: row}"></ng-container>
+            </ng-container>
+          </ng-template>
+        </crm-cell>
+      </ng-container>
+    </crm-row>
+  </crm-table>
+</crm-table-container>
+
+<div class="table-footer" [class.no-next]="!hasNext || !usePagination">
+  <crm-button (click)="getNextPage()" *ngIf="usePagination && hasNext" dropdown type="inline">
+    Show more
+  </crm-button>
+</div>

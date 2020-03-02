@@ -1,0 +1,49 @@
+<crm-page-content>
+  <crm-group direction="vertical" gap="26">
+    <div class="fields" crmGroupItem>
+      <crm-field label="Social Security Number">
+        <crm-input placeholder="000-00-0000" type="ssn" 
+        (valueChange)="socialSecurityNumber = $event"></crm-input>
+      </crm-field>
+
+      <crm-field label="Policy ID">
+        <crm-input placeholder="W00000000" 
+        (valueChange)="policyId = $event">
+        </crm-input>
+      </crm-field>
+    </div>
+
+    <div class="buttons" crmGroupItem>
+      <crm-button search (click)="fetchData()">
+        Search
+      </crm-button>
+
+      <crm-button type="inline" (click)="reset()">
+        Clear all
+      </crm-button>
+    </div>
+
+    <crm-section display="vertical" crmGroupItem *ngIf="(data$ | async) as rows; else loading">
+      <crm-section-header>
+        {{rows.length}} Search Results
+      </crm-section-header>
+
+      <crm-section-content>
+        <crm-auto-table [rows]="rows" [columns]="columns">
+          <ng-template crmCustomCell property="policyId" let-item="item">
+            <crm-button type="inline" (click)="billingPremium(item.policyId, item.policyholder)">
+              {{item.policyId}}
+            </crm-button>
+          </ng-template>
+        </crm-auto-table>
+      </crm-section-content>
+    </crm-section>
+    <ng-template #loading>
+      <crm-section display="vertical" class="loading-data">
+        <crm-section-content>
+            loading...
+        </crm-section-content>
+      </crm-section>
+    </ng-template>
+  </crm-group>
+</crm-page-content>

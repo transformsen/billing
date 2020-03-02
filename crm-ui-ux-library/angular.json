@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "crm-ui-ux": {
+      "projectType": "library",
+      "root": "projects/crm-ui-ux",
+      "sourceRoot": "projects/crm-ui-ux/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/crm-ui-ux/tsconfig.lib.json",
+            "project": "projects/crm-ui-ux/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/crm-ui-ux/src/test.ts",
+            "tsConfig": "projects/crm-ui-ux/tsconfig.spec.json",
+            "karmaConfig": "projects/crm-ui-ux/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/crm-ui-ux/tsconfig.lib.json",
+              "projects/crm-ui-ux/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "crm-ui-ux"
+}

@@ -1,0 +1,46 @@
+<crm-section>
+    <crm-section-header>
+        Current Billing Information
+    </crm-section-header>
+
+    <crm-section-content>
+        <crm-field-table>
+            <ng-template crmFieldTableContent>
+                <crm-field label="Subgroup Name">
+                    <crm-button type="inline" align="start" 
+                        (click)="goToSubgroupAccount(currentBillinginfo.subgroupId, currentBillinginfo.subgroupName)">
+                        {{currentBillinginfo.subgroupName}}
+                    </crm-button>
+                </crm-field>
+            </ng-template>
+
+            <ng-template crmFieldTableContent>
+                <crm-field label="Subgroup ID">
+                    <crm-button type="inline" align="start"
+                        (click)="goToSubgroupAccount(currentBillinginfo.subgroupId, currentBillinginfo.subgroupName)">
+                        {{currentBillinginfo.subgroupId}}
+                    </crm-button>
+                </crm-field>
+            </ng-template>
+
+            <ng-template crmFieldTableContent>
+                <crm-field label="Billing Address">
+                    {{currentBillinginfo.billingAddress}}
+                </crm-field>
+            </ng-template>
+
+            <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="
+                    selectStates.billingFrequency">
+                <crm-field label="Billing Frequency">
+                    {{currentBillinginfo.billingFrequency}}
+                </crm-field>
+            </ng-template>
+
+            <ng-template crmFieldTableContent [selectable]="selectable" [(selected)]="selectStates.statementType">
+                <crm-field label="Statement Type">
+                    {{currentBillinginfo.statementType}}
+                </crm-field>
+            </ng-template>
+        </crm-field-table>
+    </crm-section-content>
+</crm-section>

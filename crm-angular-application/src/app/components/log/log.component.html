@@ -1,0 +1,5 @@
+<crm-group direction="vertical" gap="15">
+  <app-log-item *ngFor="let item of logService.logs" [id]="item.id" crmGroupItem>
+    {{item.message}}
+  </app-log-item>
+</crm-group>

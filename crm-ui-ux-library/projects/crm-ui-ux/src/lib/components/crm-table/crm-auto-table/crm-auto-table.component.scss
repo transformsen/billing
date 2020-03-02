@@ -1,0 +1,39 @@
+@import "../../../common";
+
+:host {
+  .selected {
+    crm-cell {
+      ::ng-deep {
+        .inner {
+          color: $green;
+
+          crm-button:not(.ellipsis-expander) {
+            button {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  [crm-column='select-column'] {
+    width: 32px;
+  }
+
+  .table-footer {
+    @include flex(center, center);
+    width: 100%;
+    height: 47px;
+
+    &.no-next {
+      height: 26px;
+    }
+
+    @include break(960px) {
+      &.no-next {
+        height: 0;
+      }
+    }
+  }
+}

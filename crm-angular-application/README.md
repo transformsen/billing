@@ -3,13 +3,13 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
 
 ## Build and Run
-npm i
-cd ../crm-ui-ux-library
-npm i
-npm run build
-cd ../crm-angular-application
-npm i ../crm-ui-ux-library/dist/crm-ui-ux --save
-ng serve
+cd crm-ui-ux-library</br>
+npm i</br>
+npm run build</br>
+cd ../crm-angular-application</br>
+npm i</br>
+npm i ../crm-ui-ux-library/dist/crm-ui-ux --save</br>
+ng serve</br>
 
 ## Build
 

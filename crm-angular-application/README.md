@@ -7,7 +7,7 @@ npm i
 cd ../crm-ui-ux-library
 npm i
 npm run build
-cd ../crm-ui-ux-library
+cd ../crm-angular-application
 npm i ../crm-ui-ux-library/dist/crm-ui-ux --save
 ng serve
 

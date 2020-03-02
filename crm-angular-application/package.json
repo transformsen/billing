@@ -19,7 +19,6 @@
     "@angular/platform-browser": "~8.2.3",
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
-    "crm-ui-ux": "file:../crm-ui-ux-library/dist/crm-ui-ux",
     "moment": "^2.24.0",
     "ngx-markdown": "^8.2.1",
     "rxjs": "~6.4.0",

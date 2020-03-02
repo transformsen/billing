@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CrmAutoTableColumn } from 'crm-ui-ux/lib/components/crm-table/crm-auto-table/crm-auto-table.component';
+import { CrmAutoTableColumn } from 'crm-ui-ux';
 import { BillingNotes } from '../../../models/billing-info';
 
 @Component({

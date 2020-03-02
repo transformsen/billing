@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Bills } from '../../../models/billing-info';
-import { CrmAutoTableColumn } from 'crm-ui-ux/lib/components/crm-table/crm-auto-table/crm-auto-table.component';
+import { CrmAutoTableColumn } from 'crm-ui-ux';
 
 @Component({
   selector: 'app-bills',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BillingService } from 'src/app/services/billing.service';
-import { CrmAutoTableColumn } from 'crm-ui-ux/lib/components/crm-table/crm-auto-table/crm-auto-table.component';
+import { CrmAutoTableColumn } from 'crm-ui-ux';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BillingGroup } from 'src/app/models/billing-search';

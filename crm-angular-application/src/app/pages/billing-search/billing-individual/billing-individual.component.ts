@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {pickOne, randomDate, randomRange} from '../../../util/mock.util';
-import { CrmAutoTableColumn } from 'crm-ui-ux/lib/components/crm-table/crm-auto-table/crm-auto-table.component';
+import { CrmAutoTableColumn } from 'crm-ui-ux';
 import { BillingService } from 'src/app/services/billing.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
